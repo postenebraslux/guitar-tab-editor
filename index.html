@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Guitar Tab Editor — Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --tab:#b3261e;
@@ -14,7 +17,7 @@
 body{
   margin:0;
   background:#d7d7d7;
-  font-family:"Arial Narrow","Roboto Condensed","Aptos Narrow","Liberation Sans Narrow","DejaVu Sans Condensed",Arial,sans-serif;
+  font-family:"Manrope",Arial,sans-serif;
   color:var(--ink);
 }
 .toolbar{
@@ -50,8 +53,8 @@ body{
   position:relative;overflow:hidden;
 }
 .header{position:absolute;left:11mm;right:9mm;top:5mm;height:14mm}
-#title{text-align:center;font-weight:800;font-size:21pt;line-height:1;outline:none;font-stretch:condensed}
-#keybox{position:absolute;right:0;top:.8mm;font-size:13pt;font-weight:800;font-stretch:condensed}
+#title{text-align:center;font-weight:700;font-size:21pt;line-height:1;outline:none;font-stretch:condensed}
+#keybox{position:absolute;right:0;top:.8mm;font-size:13pt;font-weight:700;font-stretch:condensed}
 #key{display:inline-block;min-width:11mm;outline:none}
 #sheet{position:absolute;left:5.5mm;right:5.5mm;top:19mm;bottom:4mm}
 svg{width:100%;height:100%;display:block}
@@ -62,28 +65,28 @@ svg{width:100%;height:100%;display:block}
 .string-zone{fill:rgba(0,0,0,0.001);cursor:crosshair}
 .string-zone:hover{fill:rgba(20,103,176,.045)}
 .note{
-  font-family:"Arial Narrow","Roboto Condensed","Aptos Narrow","Liberation Sans Narrow","DejaVu Sans Condensed",Arial,sans-serif;
-  font-size:20px;font-weight:800;font-stretch:condensed;
+  font-family:"Manrope",Arial,sans-serif;
+  font-size:20px;font-weight:700;font-stretch:condensed;
   text-anchor:middle;dominant-baseline:middle;
   cursor:pointer;user-select:none;
   paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round;
 }
 .note:hover{fill:var(--blue)}
-.note.selected{fill:var(--blue);font-weight:800}
+.note.selected{fill:var(--blue);font-weight:700}
 .chord{
-  font-family:"Arial Narrow","Roboto Condensed","Aptos Narrow","Liberation Sans Narrow","DejaVu Sans Condensed",Arial,sans-serif;
-  font-size:19px;font-weight:800;font-stretch:condensed;
+  font-family:"Manrope",Arial,sans-serif;
+  font-size:19px;font-weight:700;font-stretch:condensed;
   text-anchor:middle;user-select:none;
 }
 .section{
-  font-family:"Arial Narrow","Roboto Condensed","Aptos Narrow","Liberation Sans Narrow","DejaVu Sans Condensed",Arial,sans-serif;
-  font-size:18px;font-weight:800;font-stretch:condensed;
+  font-family:"Manrope",Arial,sans-serif;
+  font-size:18px;font-weight:700;font-stretch:condensed;
   letter-spacing:.6px;text-anchor:middle;dominant-baseline:middle;user-select:none;
 }
 .tabmark{
   fill:var(--tab);
-  font-family:"Arial Narrow","Roboto Condensed","Aptos Narrow","Liberation Sans Narrow","DejaVu Sans Condensed",Arial,sans-serif;
-  font-size:14px;font-weight:800;font-stretch:condensed;
+  font-family:"Manrope",Arial,sans-serif;
+  font-size:14px;font-weight:700;font-stretch:condensed;
   text-anchor:middle;dominant-baseline:middle;pointer-events:none;
   paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round;
 }
@@ -143,7 +146,7 @@ svg{width:100%;height:100%;display:block}
 
 <div class="toolbar">
   <button id="blankBtn">New blank</button>
-  <button id="sampleBtn">Reload TRIONFO sample</button>
+  <button id="sampleBtn">Reload Goodness of God</button>
   <button id="undoBtn">Undo</button>
 
   <span class="sep"></span>
@@ -186,7 +189,7 @@ svg{width:100%;height:100%;display:block}
 <div class="page-wrap">
   <main class="page">
     <div class="header">
-      <div id="title" contenteditable="true" spellcheck="false">TRIONFO</div>
+      <div id="title" contenteditable="true" spellcheck="false">Goodness of God</div>
       <div id="keybox">Key: <span id="key" contenteditable="true" spellcheck="false">G</span></div>
     </div>
     <div id="sheet">
@@ -208,7 +211,7 @@ svg{width:100%;height:100%;display:block}
 </div>
 
 <div class="guide">
-  <b>Clean JSON workflow — v11 stage layout</b><br>
+  <b>Clean JSON workflow — v12 / Manrope Bold</b><br>
   1. Send the handwritten draft to ChatGPT.<br>
   2. Load the clean JSON returned by ChatGPT.<br>
   3. Optionally load the draft photo as a side reference.<br>
@@ -251,7 +254,7 @@ svg{width:100%;height:100%;display:block}
   const makeNote = (string,fret,x) => ({id:nextId++,string,fret,x});
   const selKey = (system,id) => `${system}:${id}`;
 
-  const cleanSample = {"format":"guitar-tab-clean-v1","formatVersion":1,"title":"TRIONFO","key":"G","tuning":["E4","B3","G3","D3","A2","E2"],"systems":[{"section":"INTRO","chords":[{"x":0.045,"text":"G"}],"bars":[],"dots":[],"notes":[{"string":2,"fret":15,"x":0.115},{"string":2,"fret":15,"x":0.205},{"string":2,"fret":13,"x":0.305},{"string":2,"fret":12,"x":0.405},{"string":3,"fret":12,"x":0.06},{"string":3,"fret":12,"x":0.155},{"string":3,"fret":12,"x":0.255},{"string":3,"fret":12,"x":0.365}]},{"section":"VERSE","chords":[{"x":0.045,"text":"G"},{"x":0.125,"text":"C"},{"x":0.255,"text":"Em"},{"x":0.335,"text":"D"},{"x":0.415,"text":"C"},{"x":0.495,"text":"G"},{"x":0.585,"text":"Am"},{"x":0.675,"text":"D"},{"x":0.765,"text":"G"}],"bars":[{"x":0.22,"double":false},{"x":0.825,"double":false}],"dots":[{"string":4,"x":0.855},{"string":4,"x":0.905},{"string":4,"x":0.955}],"notes":[{"string":3,"fret":4,"x":0.05},{"string":4,"fret":5,"x":0.05},{"string":5,"fret":5,"x":0.05},{"string":3,"fret":5,"x":0.125},{"string":4,"fret":5,"x":0.125},{"string":5,"fret":3,"x":0.125},{"string":2,"fret":8,"x":0.255},{"string":4,"fret":9,"x":0.255},{"string":2,"fret":7,"x":0.335},{"string":4,"fret":7,"x":0.335},{"string":2,"fret":5,"x":0.415},{"string":2,"fret":3,"x":0.495},{"string":4,"fret":5,"x":0.495},{"string":2,"fret":5,"x":0.585},{"string":3,"fret":7,"x":0.585},{"string":4,"fret":7,"x":0.585},{"string":2,"fret":7,"x":0.675},{"string":3,"fret":7,"x":0.675},{"string":4,"fret":7,"x":0.675},{"string":2,"fret":8,"x":0.765},{"string":3,"fret":7,"x":0.765},{"string":4,"fret":5,"x":0.765},{"string":2,"fret":8,"x":0.855},{"string":2,"fret":10,"x":0.905},{"string":2,"fret":12,"x":0.955}]},{"section":"CORO 1","chords":[{"x":0.05,"text":"Am"},{"x":0.14,"text":"G"},{"x":0.23,"text":"D"},{"x":0.405,"text":"G"},{"x":0.505,"text":"D"},{"x":0.625,"text":"Em"}],"bars":[{"x":0.35,"double":false},{"x":0.7,"double":false},{"x":0.925,"double":true}],"dots":[],"notes":[{"string":2,"fret":13,"x":0.05},{"string":2,"fret":12,"x":0.14},{"string":2,"fret":15,"x":0.23},{"string":2,"fret":15,"x":0.315},{"string":3,"fret":14,"x":0.23},{"string":3,"fret":12,"x":0.285},{"string":2,"fret":13,"x":0.405},{"string":2,"fret":12,"x":0.505},{"string":2,"fret":10,"x":0.625},{"string":3,"fret":12,"x":0.455},{"string":3,"fret":12,"x":0.555},{"string":3,"fret":12,"x":0.675},{"string":3,"fret":12,"x":0.755},{"string":3,"fret":14,"x":0.83},{"string":2,"fret":12,"x":0.895}]},{"section":"CORO 2","chords":[{"x":0.05,"text":"Am"},{"x":0.14,"text":"G"},{"x":0.23,"text":"D"},{"x":0.405,"text":"G"},{"x":0.505,"text":"D"},{"x":0.625,"text":"Em"},{"x":0.745,"text":"D"},{"x":0.835,"text":"C"},{"x":0.925,"text":"D"}],"bars":[{"x":0.35,"double":false},{"x":0.69,"double":false},{"x":0.78,"double":false}],"dots":[],"notes":[{"string":2,"fret":13,"x":0.05},{"string":2,"fret":12,"x":0.14},{"string":2,"fret":15,"x":0.23},{"string":2,"fret":15,"x":0.315},{"string":3,"fret":14,"x":0.23},{"string":3,"fret":12,"x":0.285},{"string":2,"fret":13,"x":0.405},{"string":2,"fret":12,"x":0.505},{"string":2,"fret":10,"x":0.625},{"string":3,"fret":12,"x":0.455},{"string":3,"fret":12,"x":0.555},{"string":3,"fret":12,"x":0.675}]},{"section":"BRIDGE","chords":[{"x":0.055,"text":"Em"},{"x":0.275,"text":"C"},{"x":0.495,"text":"G"},{"x":0.65,"text":"D"}],"bars":[{"x":0.22,"double":false},{"x":0.42,"double":false},{"x":0.56,"double":false},{"x":0.72,"double":true}],"dots":[],"notes":[{"string":2,"fret":12,"x":0.055},{"string":3,"fret":12,"x":0.055},{"string":5,"fret":14,"x":0.145},{"string":2,"fret":13,"x":0.285},{"string":3,"fret":12,"x":0.235},{"string":5,"fret":14,"x":0.345},{"string":2,"fret":12,"x":0.495},{"string":3,"fret":12,"x":0.495},{"string":5,"fret":12,"x":0.495},{"string":5,"fret":12,"x":0.585},{"string":3,"fret":14,"x":0.645},{"string":2,"fret":15,"x":0.695},{"string":3,"fret":12,"x":0.795},{"string":3,"fret":14,"x":0.865},{"string":2,"fret":12,"x":0.925}]},{"section":"CORO 3","chords":[{"x":0.05,"text":"Am"},{"x":0.14,"text":"G"},{"x":0.23,"text":"D"},{"x":0.405,"text":"G"},{"x":0.505,"text":"D"},{"x":0.615,"text":"Em"}],"bars":[{"x":0.35,"double":false},{"x":0.69,"double":false}],"dots":[],"notes":[{"string":3,"fret":12,"x":0.285},{"string":2,"fret":15,"x":0.325},{"string":2,"fret":13,"x":0.405},{"string":2,"fret":12,"x":0.505},{"string":2,"fret":10,"x":0.615},{"string":3,"fret":12,"x":0.455},{"string":3,"fret":12,"x":0.555},{"string":3,"fret":12,"x":0.665},{"string":3,"fret":12,"x":0.755},{"string":3,"fret":14,"x":0.835},{"string":2,"fret":12,"x":0.905}]},{"section":"LAST CORO","chords":[{"x":0.05,"text":"Dm"},{"x":0.12,"text":"G"},{"x":0.2,"text":"D"},{"x":0.4,"text":"G"},{"x":0.5,"text":"D"},{"x":0.6,"text":"Em"},{"x":0.735,"text":"D"},{"x":0.815,"text":"C"},{"x":0.875,"text":"D"},{"x":0.93,"text":"Em"},{"x":0.98,"text":"D"}],"bars":[{"x":0.34,"double":false},{"x":0.69,"double":false},{"x":0.755,"double":false},{"x":0.835,"double":false},{"x":0.895,"double":false},{"x":0.95,"double":false},{"x":0.992,"double":true}],"dots":[],"notes":[{"string":2,"fret":13,"x":0.05},{"string":2,"fret":12,"x":0.12},{"string":2,"fret":15,"x":0.2},{"string":2,"fret":15,"x":0.305},{"string":3,"fret":14,"x":0.2},{"string":3,"fret":12,"x":0.255},{"string":2,"fret":13,"x":0.4},{"string":2,"fret":12,"x":0.5},{"string":2,"fret":10,"x":0.6},{"string":3,"fret":12,"x":0.455},{"string":3,"fret":12,"x":0.555},{"string":3,"fret":12,"x":0.655},{"string":2,"fret":7,"x":0.735},{"string":3,"fret":7,"x":0.735},{"string":4,"fret":7,"x":0.735},{"string":2,"fret":5,"x":0.815},{"string":4,"fret":5,"x":0.815},{"string":2,"fret":7,"x":0.875},{"string":4,"fret":7,"x":0.875},{"string":2,"fret":8,"x":0.93},{"string":4,"fret":9,"x":0.93},{"string":2,"fret":7,"x":0.98},{"string":4,"fret":7,"x":0.98}]},{"section":"","chords":[],"bars":[],"dots":[],"notes":[]}],"metadata":{"source":"handwritten draft","workflow":"ChatGPT transcription -> manual app review -> transpose/export"}};
+  const cleanSample = {"format":"guitar-tab-clean-v1","formatVersion":2,"title":"Goodness of God","key":"G","tuning":["E4","B3","G3","D3","A2","E2"],"systems":[{"section":"CORO","chords":[{"text":"C","x":0.06},{"text":"G","x":0.14},{"text":"C","x":0.22},{"text":"G","x":0.3},{"text":"D","x":0.38},{"text":"C","x":0.49},{"text":"G","x":0.58},{"text":"D","x":0.64},{"text":"Em","x":0.71},{"text":"C","x":0.81},{"text":"D","x":0.89},{"text":"G","x":0.96}],"bars":[{"x":0.44,"double":false}],"notes":[{"string":2,"fret":8,"x":0.06},{"string":3,"fret":5,"x":0.06},{"string":4,"fret":5,"x":0.06},{"string":2,"fret":8,"x":0.14},{"string":3,"fret":7,"x":0.14},{"string":4,"fret":5,"x":0.14},{"string":2,"fret":8,"x":0.22},{"string":3,"fret":5,"x":0.22},{"string":4,"fret":5,"x":0.22},{"string":2,"fret":8,"x":0.3},{"string":3,"fret":7,"x":0.3},{"string":4,"fret":5,"x":0.3},{"string":2,"fret":7,"x":0.38},{"string":3,"fret":7,"x":0.38},{"string":4,"fret":7,"x":0.38},{"string":2,"fret":8,"x":0.49},{"string":3,"fret":5,"x":0.49},{"string":4,"fret":5,"x":0.49},{"string":2,"fret":12,"x":0.58},{"string":2,"fret":10,"x":0.64},{"string":2,"fret":8,"x":0.71},{"string":2,"fret":8,"x":0.81},{"string":3,"fret":5,"x":0.81},{"string":4,"fret":5,"x":0.81},{"string":2,"fret":7,"x":0.89},{"string":3,"fret":7,"x":0.89},{"string":4,"fret":7,"x":0.89},{"string":2,"fret":8,"x":0.96},{"string":3,"fret":7,"x":0.96},{"string":4,"fret":5,"x":0.96}],"dots":[],"mutes":[],"slurs":[{"x1":0.58,"x2":0.64,"row":3},{"x1":0.64,"x2":0.71,"row":3}]},{"section":"INTERLUDE","chords":[{"text":"G","x":0.1},{"text":"C","x":0.2},{"text":"G","x":0.32}],"bars":[{"x":0.4,"double":false}],"notes":[{"string":5,"fret":5,"x":0.1},{"string":3,"fret":5,"x":0.2},{"string":4,"fret":5,"x":0.2},{"string":5,"fret":3,"x":0.25},{"string":3,"fret":4,"x":0.32},{"string":4,"fret":5,"x":0.32}],"dots":[],"mutes":[],"slurs":[]},{"section":"VERSE","chords":[{"text":"G","x":0.05},{"text":"C","x":0.12},{"text":"G","x":0.19},{"text":"Em","x":0.27},{"text":"C","x":0.35},{"text":"D","x":0.42},{"text":"Em","x":0.53},{"text":"C","x":0.6},{"text":"C","x":0.79},{"text":"D","x":0.86},{"text":"G","x":0.93}],"bars":[{"x":0.44,"double":false}],"notes":[{"string":2,"fret":8,"x":0.64},{"string":2,"fret":7,"x":0.69},{"string":2,"fret":5,"x":0.74}],"dots":[],"mutes":[],"slurs":[]},{"section":"CORO","chords":[{"text":"C","x":0.06},{"text":"G","x":0.14},{"text":"C","x":0.22},{"text":"G","x":0.3},{"text":"D","x":0.38},{"text":"C","x":0.49},{"text":"G","x":0.58},{"text":"D","x":0.64},{"text":"Em","x":0.71},{"text":"C","x":0.81},{"text":"D","x":0.89},{"text":"G","x":0.96}],"bars":[{"x":0.44,"double":false}],"notes":[{"string":2,"fret":8,"x":0.06},{"string":3,"fret":5,"x":0.06},{"string":4,"fret":5,"x":0.06},{"string":2,"fret":8,"x":0.14},{"string":3,"fret":7,"x":0.14},{"string":4,"fret":5,"x":0.14},{"string":2,"fret":8,"x":0.22},{"string":3,"fret":5,"x":0.22},{"string":4,"fret":5,"x":0.22},{"string":2,"fret":8,"x":0.3},{"string":3,"fret":7,"x":0.3},{"string":4,"fret":5,"x":0.3},{"string":2,"fret":7,"x":0.38},{"string":3,"fret":7,"x":0.38},{"string":4,"fret":7,"x":0.38},{"string":2,"fret":8,"x":0.49},{"string":3,"fret":5,"x":0.49},{"string":4,"fret":5,"x":0.49},{"string":2,"fret":12,"x":0.58},{"string":2,"fret":10,"x":0.64},{"string":2,"fret":8,"x":0.71},{"string":2,"fret":8,"x":0.81},{"string":3,"fret":5,"x":0.81},{"string":4,"fret":5,"x":0.81},{"string":2,"fret":7,"x":0.89},{"string":3,"fret":7,"x":0.89},{"string":4,"fret":7,"x":0.89},{"string":2,"fret":8,"x":0.96},{"string":3,"fret":7,"x":0.96},{"string":4,"fret":5,"x":0.96}],"dots":[],"mutes":[],"slurs":[{"x1":0.58,"x2":0.64,"row":3},{"x1":0.64,"x2":0.71,"row":3}]},{"section":"BRIDGE","chords":[{"text":"G","x":0.08},{"text":"C","x":0.16},{"text":"D","x":0.24},{"text":"G","x":0.32},{"text":"G","x":0.46},{"text":"C","x":0.54},{"text":"D","x":0.62},{"text":"Em","x":0.7}],"bars":[{"x":0.37,"double":true},{"x":0.78,"double":false}],"notes":[{"string":2,"fret":8,"x":0.08},{"string":3,"fret":7,"x":0.08},{"string":4,"fret":5,"x":0.08},{"string":2,"fret":8,"x":0.16},{"string":3,"fret":5,"x":0.16},{"string":4,"fret":5,"x":0.16},{"string":2,"fret":7,"x":0.24},{"string":3,"fret":7,"x":0.24},{"string":4,"fret":7,"x":0.24},{"string":2,"fret":8,"x":0.32},{"string":3,"fret":7,"x":0.32},{"string":4,"fret":5,"x":0.32},{"string":2,"fret":8,"x":0.46},{"string":3,"fret":7,"x":0.46},{"string":4,"fret":5,"x":0.46},{"string":2,"fret":8,"x":0.54},{"string":3,"fret":5,"x":0.54},{"string":4,"fret":5,"x":0.54},{"string":2,"fret":7,"x":0.62},{"string":3,"fret":7,"x":0.62},{"string":4,"fret":7,"x":0.62},{"string":2,"fret":8,"x":0.7},{"string":3,"fret":9,"x":0.7},{"string":4,"fret":9,"x":0.7}],"dots":[],"mutes":[],"slurs":[]},{"section":"ALT","chords":[{"text":"G","x":0.86},{"text":"C","x":0.91},{"text":"G","x":0.96}],"bars":[{"x":0.62,"double":false},{"x":0.79,"double":true}],"notes":[{"string":2,"fret":12,"x":0.06},{"string":2,"fret":15,"x":0.12},{"string":2,"fret":15,"x":0.22},{"string":2,"fret":15,"x":0.28},{"string":2,"fret":12,"x":0.38},{"string":2,"fret":13,"x":0.41},{"string":2,"fret":10,"x":0.49},{"string":2,"fret":12,"x":0.53},{"string":2,"fret":10,"x":0.59},{"string":4,"fret":12,"x":0.63},{"string":2,"fret":10,"x":0.69},{"string":2,"fret":10,"x":0.73},{"string":2,"fret":12,"x":0.77},{"string":5,"fret":12,"x":0.84},{"string":4,"fret":12,"x":0.87},{"string":2,"fret":13,"x":0.9},{"string":5,"fret":12,"x":0.94},{"string":2,"fret":12,"x":0.97}],"dots":[],"mutes":[],"slurs":[{"x1":0.06,"x2":0.12,"row":4},{"x1":0.38,"x2":0.41,"row":4},{"x1":0.49,"x2":0.53,"row":4},{"x1":0.69,"x2":0.77,"row":4}]},{"section":"CORO","chords":[{"text":"C","x":0.06},{"text":"G","x":0.14},{"text":"C","x":0.22},{"text":"G","x":0.3},{"text":"D","x":0.38},{"text":"C","x":0.49},{"text":"G","x":0.58},{"text":"D","x":0.64},{"text":"Em","x":0.71},{"text":"C","x":0.8},{"text":"D","x":0.86},{"text":"Em","x":0.92},{"text":"C","x":0.95},{"text":"D","x":0.97},{"text":"G","x":0.99}],"bars":[{"x":0.44,"double":false},{"x":0.76,"double":false},{"x":0.93,"double":true}],"notes":[{"string":2,"fret":8,"x":0.06},{"string":3,"fret":5,"x":0.06},{"string":4,"fret":5,"x":0.06},{"string":2,"fret":8,"x":0.14},{"string":3,"fret":7,"x":0.14},{"string":4,"fret":5,"x":0.14},{"string":2,"fret":8,"x":0.22},{"string":3,"fret":5,"x":0.22},{"string":4,"fret":5,"x":0.22},{"string":2,"fret":8,"x":0.3},{"string":3,"fret":7,"x":0.3},{"string":4,"fret":5,"x":0.3},{"string":2,"fret":7,"x":0.38},{"string":3,"fret":7,"x":0.38},{"string":4,"fret":7,"x":0.38},{"string":2,"fret":8,"x":0.49},{"string":3,"fret":5,"x":0.49},{"string":4,"fret":5,"x":0.49},{"string":2,"fret":12,"x":0.58},{"string":2,"fret":10,"x":0.64},{"string":2,"fret":8,"x":0.71},{"string":2,"fret":8,"x":0.8},{"string":3,"fret":5,"x":0.8},{"string":4,"fret":5,"x":0.8},{"string":2,"fret":7,"x":0.86},{"string":3,"fret":7,"x":0.86},{"string":4,"fret":7,"x":0.86},{"string":2,"fret":8,"x":0.92},{"string":3,"fret":9,"x":0.92},{"string":4,"fret":9,"x":0.92},{"string":2,"fret":8,"x":0.95},{"string":3,"fret":5,"x":0.95},{"string":4,"fret":5,"x":0.95},{"string":2,"fret":7,"x":0.97},{"string":3,"fret":7,"x":0.97},{"string":4,"fret":7,"x":0.97},{"string":2,"fret":8,"x":0.99},{"string":3,"fret":7,"x":0.99},{"string":4,"fret":5,"x":0.99}],"dots":[],"mutes":[],"slurs":[{"x1":0.58,"x2":0.64,"row":3},{"x1":0.64,"x2":0.71,"row":3}]}],"metadata":{"workflow":"ChatGPT transcription -> deterministic clean render -> app review -> transpose/export","template":"Locked LEFTYFRETZ-style template with TAB letters inside the staff and legible sans-serif font.","scaleValidationSummary":{"key":"G major","allowedPitchClasses":["A","B","C","D","E","F#","G"],"allSoundedNotesInKey":true},"firstPassReviewNotes":["INTERLUDE remains the least certain section and should be checked in the editor.","ALT ending figure under G–C–G is a best-fit first pass and should be checked in the editor.","Main CORO and BRIDGE triad passages are grounded from the draft and the key of G."],"lockedVisualTemplate":{"name":"LEFTYFRETZ-like stage-readable master","page":"A4 portrait proportions","font":"DejaVu Sans Condensed Bold (or close equivalent)","tabBoxes":"large, stage-readable","sectionLabels":"close to left edge of related tab box and vertically centered","tabLetters":"inside box, between strings 2-3, 3-4, 4-5","footer":"none","rendering":"deterministic"}}};
 
   function hydrateTab(obj){
     const src=clone(obj||{});
@@ -662,7 +665,7 @@ svg{width:100%;height:100%;display:block}
     data=hydrateTab(cleanSample);
     selected.clear();
     render();
-    setStatus("TRIONFO clean sample reloaded.");
+    setStatus("Goodness of God reloaded.");
   });
 
   document.getElementById("blankBtn").addEventListener("click",()=>{
@@ -798,7 +801,7 @@ svg{width:100%;height:100%;display:block}
   document.getElementById("key").addEventListener("input",syncHeader);
 
   render();
-  setStatus("v11 locked stage layout ready. Load a clean JSON when ready.");
+  setStatus("Goodness of God loaded. You can edit it or load another clean JSON.");
 })();
 </script>
 </body>
