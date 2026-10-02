@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guitar Tab Editor — Instructions</title>
+<style>
+:root{--ink:#171717;--muted:#616161;--line:#ddd;--accent:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f5f5;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+main{max-width:900px;margin:0 auto;padding:32px 20px 64px}
+article{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px}
+h1{margin-top:0;font-size:30px}
+h2{margin-top:30px;font-size:20px}
+code{background:#f2f2f2;padding:2px 5px;border-radius:4px}
+a{color:#1266a8}
+.note{border-left:4px solid var(--accent);padding:10px 14px;background:#faf7f7}
+li{margin:.35em 0}
+</style>
+</head>
+<body>
+<main>
+<article>
+<h1>Guitar Tab Editor — Instructions</h1>
+<p>This is the browser version of the stage-readable guitar tablature editor. It runs entirely as a static web app: no account or server database is required to edit tabs.</p>
+
+<h2>Recommended browser</h2>
+<p>Use a current desktop version of <strong>Google Chrome</strong> or <strong>Microsoft Edge</strong>. The editor also works in other modern browsers, but the native <strong>Save Clean JSON As…</strong> location picker is best supported in Chromium-based browsers.</p>
+
+<h2>Basic workflow</h2>
+<ol>
+<li>Prepare a clean tab JSON with the agreed transcription workflow.</li>
+<li>Open the editor and click <strong>Load Clean Tab JSON</strong>.</li>
+<li>Optionally click <strong>Load Draft Reference</strong> to keep the handwritten draft visible beside the clean tab.</li>
+<li>Review and correct fret numbers, strings, chords, section names, and barlines.</li>
+<li>Use <strong>Save Clean JSON As…</strong> to save the approved clean version.</li>
+<li>Use <strong>Transpose</strong> only after the clean version is approved.</li>
+<li>Use <strong>Print / PDF</strong> for the A4 stage-readable output.</li>
+</ol>
+
+<h2>Editing fret numbers</h2>
+<ul>
+<li>Click an existing fret number to select it and hear it when Sound is enabled.</li>
+<li>Ctrl-click on Windows/Linux or Command-click on macOS to select multiple fret numbers.</li>
+<li>Type a value in <strong>Fret</strong> and use <strong>Apply to selected</strong>.</li>
+<li>Use <strong>String ↑</strong> and <strong>String ↓</strong> to move selected notes between strings.</li>
+<li>Use <strong>Delete</strong> to remove selected fret numbers.</li>
+<li>Click an empty position on a string to add a fret using the current Fret value.</li>
+</ul>
+
+<h2>Sections, chords, and bars</h2>
+<ul>
+<li>Double-click a section label to rename it.</li>
+<li>Double-click a chord to edit it.</li>
+<li>Right-click a chord to delete it.</li>
+<li>Double-click above a staff to add a chord.</li>
+<li>Click <strong>Add barline</strong>, then click the desired horizontal position in a staff.</li>
+</ul>
+
+<h2>Stage layout</h2>
+<p>The editor uses the locked A4 layout designed for reading from an approximately 11-inch tablet: large tab systems, bold condensed text, large fret numbers, section labels close to their tab boxes, and TAB letters inside the box between strings 2–3, 3–4, and 4–5.</p>
+
+<h2>Transcription rule used with this editor</h2>
+<div class="note">
+The clean transcription workflow treats the string physically touched by a handwritten number as the primary string assignment. Horizontal placement follows the handwritten draft. Chord shapes are used as validation. Every sounded note must belong to the major scale of the written song key; muted <code>x</code> marks are exempt.
+</div>
+
+<h2>Your files and privacy</h2>
+<p>JSON files and draft images that you open are read locally by the browser. This app has no backend upload function and makes no network request to store your tab content. Saving produces a file on your own device.</p>
+
+<h2>Updating the online editor</h2>
+<p>To publish a newer version later, replace <code>index.html</code> in the GitHub repository and commit the change. GitHub Pages will redeploy the updated site automatically from the configured publishing branch.</p>
+
+<p><a href="index.html">← Back to the editor</a></p>
+</article>
+</main>
+</body>
+</html>
