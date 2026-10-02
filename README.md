@@ -6,9 +6,7 @@ A browser-based guitar tablature editor optimized for a stage-readable A4 layout
 
 After GitHub Pages is enabled, the project URL will normally be:
 
-`https://YOUR-GITHUB-USERNAME.github.io/guitar-tab-editor/`
-
-Replace `YOUR-GITHUB-USERNAME` with your GitHub username.
+`https://postenebraslux.github.io/guitar-tab-editor/`
 
 ## Features
 
